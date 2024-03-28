@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Instructions">
+  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="true" same-size-vertically="true" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="457" height="400"/>
+    </constraints>
+    <properties>
+      <background color="-8684419"/>
+    </properties>
+    <border type="none" title="WELCOME TO HANGMAN “The object of hangman is to guess the secret word before the stick figure is hung.Gameplay continues until the players guess the word or they run out of guesses and the stick figure is hung.” "/>
+    <children/>
+  </grid>
+</form>
