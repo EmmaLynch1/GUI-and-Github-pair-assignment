@@ -1,5 +1,5 @@
 import java.util.Random;
-
+/*
 class GameLogic {
     String[] words = {"GIRAFFE", "ARCTIC", "HANGMAN", "SUPERCALIFRAGILISTICEXPIALIDOCIOUS", "XENOTRANSPLANTATION", "ENGLISH", "BASKETBALL", "GENERATION"};
     String chosenWord;
@@ -27,3 +27,4 @@ class GameLogic {
 
     }
 }
+*/
