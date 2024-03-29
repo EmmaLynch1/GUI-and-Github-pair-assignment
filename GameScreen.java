@@ -31,6 +31,7 @@ public class GameScreen extends JFrame {
     private JButton tButton;
     private JButton uButton;
     private JButton zButton;
+    private JLabel imageLabel;
 
     public GameScreen() {
         setTitle("Hangman");
@@ -47,4 +48,8 @@ public class GameScreen extends JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+        //imageLabel=new JLabel(new ImageIcon("TikiMan1HB.png"));
+    }
 }
