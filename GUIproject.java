@@ -37,5 +37,14 @@ public class GUIproject extends JFrame {
         h.setVisible(true);
         h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
+    public static void main(String[] args) {
+        GUIproject h= new GUIproject();
+        h.setContentPane(h.homeScreen);
+        h.setTitle("HANGMAN GAME");
+        h.setBounds(400,100,600,500);
+        h.setVisible(true);
+        h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
 }
 
