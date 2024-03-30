@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -7,6 +8,8 @@ public class GUIproject extends JFrame {
     private JButton instructionsPopup;
     private JButton exitButton;
     private JPanel homeScreen;
+    private JLabel mainPic;
+
 
     public GUIproject() {
         playButton.addActionListener(new ActionListener() {
@@ -46,5 +49,10 @@ public class GUIproject extends JFrame {
         h.setBounds(400,100,600,500);
         h.setVisible(true);
         h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+        mainPic=new JLabel(new ImageIcon("main.png"));
     }
 }

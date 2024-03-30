@@ -3,6 +3,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class GameScreen extends JFrame {
+    public void disposeGameFrame() {
+        dispose();
+    }
     private JButton mainPopup;
     private JPanel GameScreen;
     private JButton vButton;
@@ -33,6 +36,7 @@ public class GameScreen extends JFrame {
     private JButton zButton;
     private JLabel imageLabel;
 
+
     public GameScreen() {
         setTitle("Hangman");
         setSize(400, 300);
@@ -46,10 +50,19 @@ public class GameScreen extends JFrame {
         });
         setContentPane(GameScreen);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        //in game popup
+        mainPopup.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PopUpScreen popup=new PopUpScreen();
+                popup.setVisible(true);
+            }
+        });
     }
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
-        //imageLabel=new JLabel(new ImageIcon("TikiMan1HB.png"));
+        imageLabel=new JLabel(new ImageIcon("stand.png"));
     }
 }
