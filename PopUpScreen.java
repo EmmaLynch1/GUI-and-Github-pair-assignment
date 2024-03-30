@@ -41,4 +41,4 @@ public class PopUpScreen extends JFrame {
             }
         });
     }
-}
+}// have to ensure exit button closes game frame

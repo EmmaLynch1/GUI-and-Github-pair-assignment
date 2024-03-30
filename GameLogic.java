@@ -27,4 +27,23 @@ class GameLogic {
 
     }
 }
+
+
+public class GameLogic {
+
+    private String chosenWord;
+    private String hiddenWord;
+    private int remainingGuesses;
+
+    public GameLogic() {
+        chosenWord = generateWord();
+        initializeHiddenWord();
+        //set initial number of guesses/amount of body parts
+        remainingGuesses = 6;
+    }
+
+    private String generateWord() {
+
+
+}}
 */
