@@ -15,7 +15,8 @@ public class Instructions extends JFrame{
         GOBACKButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            dispose();
+
+                dispose();
             }
         });
         setContentPane(instructions);
