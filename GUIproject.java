@@ -18,6 +18,7 @@ public class GUIproject extends JFrame {
                 GameScreen play=new GameScreen();
                 play.setVisible(true);//open game form
                 dispose();//close current
+
             }
         });
         instructionsPopup.addActionListener(new ActionListener() {
