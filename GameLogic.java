@@ -1,34 +1,4 @@
 import java.util.Random;
-/*
-class GameLogic {
-    String[] words = {"GIRAFFE", "ARCTIC", "HANGMAN", "SUPERCALIFRAGILISTICEXPIALIDOCIOUS", "XENOTRANSPLANTATION", "ENGLISH", "BASKETBALL", "GENERATION"};
-    String chosenWord;
-
-    static String generateWord() {
-        Random rand = new Random();
-        int max = words.length - 1;
-        int min = 0;
-
-        int randomNumber = rand.nextInt((max - min) + 1) + min; // Generate number from a min of 0 to a max of the words array
-        
-        chosenWord = words[randomNumber]; // Take random number and put it as the word that the main game will use
-
-        return chosenWord;
-    }
-
-    // I am going to make this more elaborate later + not fully done
-    static boolean compareInputToChosenWord(String input, String hiddenWord) {
-        if (hiddenWord.contains(input)) {
-            return true;
-        }
-        else {
-            return false;
-        }
-
-    }
-}
-*/
-
 public class GameLogic {
 
     private String chosenWord;
@@ -80,10 +50,20 @@ public class GameLogic {
             }
             hiddenWord = updatedHiddenWord.toString();
             updateWordToGuessLabel(hiddenWord);
+            if (hiddenWord.equals(chosenWord)){
+                displayWinMessage winMessage = new displayWinMessage();
+                winMessage.setVisible(true);
+                gameScreen.disposeGameFrame();
+            }
             return true;//correct guess
         } else {
             //incorrect guess
             remainingGuesses--;
+            gameScreen.updateRemainingGuessesLabel(getRemainingGuesses());
+            if (remainingGuesses==0){
+                displayLoseMessage();
+                gameScreen.dispose();
+            }
             return false;
         }
     }
@@ -92,6 +72,10 @@ public class GameLogic {
         makeGuess(letter);
 
 
+    }
+    private void displayLoseMessage(){
+        displayLoseMessage loseMessage=new displayLoseMessage();
+        loseMessage.setVisible(true);
     }
     private void updateWordToGuessLabel(String updatedHiddenWord) {
         if (gameScreen != null) {

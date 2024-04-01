@@ -39,6 +39,7 @@ public class GameScreen extends JFrame {
     private JButton zButton;
     private JLabel imageLabel;
     private JLabel wordToGuess;
+    private JLabel remainingGuessesLabel;
 
 
     public GameScreen() {
@@ -250,6 +251,9 @@ public class GameScreen extends JFrame {
 
     }
     //error
+    public void updateRemainingGuessesLabel(int remainingGuesses){
+        remainingGuessesLabel.setText("Remaining Guesses: "+ remainingGuesses);
+    }
     public void updateWordToGuessLabel(String updatedHiddenWord) {
         wordToGuess.setText(updatedHiddenWord);
     }
@@ -257,6 +261,7 @@ public class GameScreen extends JFrame {
         // TODO: place custom component creation code here
         imageLabel = new JLabel(new ImageIcon("stand.png"));
         wordToGuess = new JLabel();
+        remainingGuessesLabel = new JLabel();
 
     }
 }
