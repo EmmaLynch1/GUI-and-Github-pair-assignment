@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,14 +8,20 @@ public class GUIproject extends JFrame {
     private JButton exitButton;
     private JPanel homeScreen;
     private JLabel mainPic;
+    private JButton HIGHSCORESButton;
 
 
     public GUIproject() {
+        setTitle("HOME SCREEN");
+        setSize(400, 300);
+        setBounds(400, 100, 600, 500);
+        setVisible(true);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         playButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 System.out.println("here");
-                GameScreen play=new GameScreen();
+                GameScreen play = new GameScreen();
                 play.setVisible(true);//open game form
                 dispose();//close current
 
@@ -26,7 +31,7 @@ public class GUIproject extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 //open instructions frame
-                Instructions popup=new Instructions();
+                Instructions popup = new Instructions();
                 popup.setVisible(true);
 
 
@@ -41,9 +46,16 @@ public class GUIproject extends JFrame {
                 }
             }
         });
+        setContentPane(homeScreen);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
-    }
 
+        HIGHSCORESButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+    }
     public static void main(String[] args) {
         GUIproject h= new GUIproject();
         h.setContentPane(h.homeScreen);

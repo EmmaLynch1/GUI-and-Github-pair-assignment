@@ -50,11 +50,20 @@ public class GameLogic {
             }
             hiddenWord = updatedHiddenWord.toString();
             updateWordToGuessLabel(hiddenWord);
+            if (hiddenWord.equals(chosenWord)){
+                displayWinMessage winMessage = new displayWinMessage();
+                winMessage.setVisible(true);
+                gameScreen.disposeGameFrame();
+            }
             return true;//correct guess
         } else {
             //incorrect guess
             remainingGuesses--;
             gameScreen.updateRemainingGuessesLabel(getRemainingGuesses());
+            if (remainingGuesses==0){
+                displayLoseMessage();
+                gameScreen.dispose();
+            }
             return false;
         }
     }
@@ -63,6 +72,10 @@ public class GameLogic {
         makeGuess(letter);
 
 
+    }
+    private void displayLoseMessage(){
+        displayLoseMessage loseMessage=new displayLoseMessage();
+        loseMessage.setVisible(true);
     }
     private void updateWordToGuessLabel(String updatedHiddenWord) {
         if (gameScreen != null) {
