@@ -21,7 +21,8 @@ public class PopUpScreen extends JFrame {
         INSTRUCTIONSButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Instructions popup = new Instructions();
+                popup.setVisible(true);
             }
         });
 
@@ -30,8 +31,10 @@ public class PopUpScreen extends JFrame {
         QUITButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            dispose();
-            gameScreen.disposeGameFrame();
+                int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to quit?", "confirm", JOptionPane.YES_NO_OPTION);
+                if (result == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
             }
         });
     }

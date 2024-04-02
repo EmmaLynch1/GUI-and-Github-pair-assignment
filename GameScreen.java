@@ -40,14 +40,15 @@ public class GameScreen extends JFrame {
     private JLabel imageLabel;
     private JLabel wordToGuess;
     private JLabel remainingGuessesLabel;
+    GUIproject GUIProjectInstance;
 
-
-    public GameScreen() {
+    public GameScreen(GUIproject GUIProjectInstance) {
+        this.GUIProjectInstance= GUIProjectInstance;
         setTitle("Hangman");
         setSize(400, 300);
         setBounds(400, 100, 600, 500);
         //initialize game logic
-        gameLogic = new GameLogic(this);
+        gameLogic = new GameLogic(this,this.GUIProjectInstance);
         setVisible(true);
         updateWordToGuessLabel(gameLogic.getHiddenWord());
         mainPopup.addActionListener(new ActionListener() {

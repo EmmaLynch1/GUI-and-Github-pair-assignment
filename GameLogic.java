@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Random;
 public class GameLogic {
 
@@ -5,13 +6,17 @@ public class GameLogic {
     private String hiddenWord;
     private int remainingGuesses;
     private GameScreen gameScreen;
-
-    public GameLogic(GameScreen gameScreen) {
+    private GUIproject guiProject;
+    private int score;
+    public GameLogic(GameScreen gameScreen, GUIproject guiProject) {
         this.gameScreen=gameScreen;
+        this.guiProject= guiProject;
         chosenWord = generateWord();
         initializeHiddenWord();
         //set initial number of guesses/amount of body parts
         remainingGuesses = 6;
+        //initialize score to 0 when game starts
+        score=0;
     }
 
     private String generateWord() {
@@ -33,6 +38,15 @@ public class GameLogic {
     public int getRemainingGuesses() {
         return remainingGuesses;
     }
+    private String getPlayerName(){
+        return JOptionPane.showInputDialog(null, "Enter your name:", "Player Name", JOptionPane.PLAIN_MESSAGE);
+    }
+    private int calculateScore(){
+        int remainingGuesses = getRemainingGuesses();
+        int baseScore=100;
+        int score = baseScore + (remainingGuesses*10);
+        return score;
+    }
 
     //create method for handling guess, that will pass the letters from keyboard
     public boolean makeGuess(char guessedLetter) {
@@ -50,18 +64,25 @@ public class GameLogic {
             }
             hiddenWord = updatedHiddenWord.toString();
             updateWordToGuessLabel(hiddenWord);
+            //handle win
             if (hiddenWord.equals(chosenWord)){
-                displayWinMessage winMessage = new displayWinMessage();
+                score = calculateScore();
+                String playerName= getPlayerName();
+                guiProject.updateHighScores(playerName,calculateScore());
+                displayWinMessage winMessage = new displayWinMessage(score);
                 winMessage.setVisible(true);
                 gameScreen.disposeGameFrame();
             }
             return true;//correct guess
         } else {
-            //incorrect guess
+            //handle lose
             remainingGuesses--;
             gameScreen.updateRemainingGuessesLabel(getRemainingGuesses());
             if (remainingGuesses==0){
-                displayLoseMessage();
+                score= calculateScore();
+                String playerName= getPlayerName();
+                guiProject.updateHighScores(playerName,calculateScore());
+                displayLoseMessage(score);
                 gameScreen.dispose();
             }
             return false;
@@ -73,8 +94,9 @@ public class GameLogic {
 
 
     }
-    private void displayLoseMessage(){
-        displayLoseMessage loseMessage=new displayLoseMessage();
+
+    private void displayLoseMessage(int score){
+        displayLoseMessage loseMessage=new displayLoseMessage(score);
         loseMessage.setVisible(true);
     }
     private void updateWordToGuessLabel(String updatedHiddenWord) {
