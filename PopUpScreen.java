@@ -27,7 +27,7 @@ public class PopUpScreen extends JFrame {
         });
 
         setContentPane(ingamePOPUP);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //setExtendedState(JFrame.MAXIMIZED_BOTH);
         QUITButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

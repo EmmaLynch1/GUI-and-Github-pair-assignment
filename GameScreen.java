@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -57,7 +58,7 @@ public class GameScreen extends JFrame {
             }
         });
         setContentPane(GameScreen);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         //in game popup
         mainPopup.addActionListener(new ActionListener() {
@@ -258,9 +259,42 @@ public class GameScreen extends JFrame {
     public void updateWordToGuessLabel(String updatedHiddenWord) {
         wordToGuess.setText(updatedHiddenWord);
     }
+
+    public void updateHangmanPhoto(int remainingGuesses){
+        ImageIcon head = new ImageIcon(getClass().getResource("head.png"));
+        ImageIcon stand = new ImageIcon(getClass().getResource("stand.png"));
+        ImageIcon body = new ImageIcon(getClass().getResource("body.png"));
+        ImageIcon left_arm = new ImageIcon(getClass().getResource("leftarm.png"));
+        ImageIcon right_arm = new ImageIcon(getClass().getResource("rightarm.png"));
+        ImageIcon right_leg = new ImageIcon(getClass().getResource("rightleg.png"));
+
+        if (remainingGuesses == 6) {
+            imageLabel.setIcon(stand);
+        }
+        else if (remainingGuesses == 5) {
+            imageLabel.setIcon(head);
+        }
+        else if (remainingGuesses == 4) {
+            imageLabel.setIcon(body);
+        }
+        else if (remainingGuesses == 3) {
+            imageLabel.setIcon(left_arm);
+        }
+        else if (remainingGuesses == 2) {
+            imageLabel.setIcon(right_arm);
+        }
+        else if (remainingGuesses == 1) {
+            imageLabel.setIcon(right_leg);
+        }
+        else {
+            imageLabel.setIcon(stand);
+        }
+    }
+
     private void createUIComponents() {
         // TODO: place custom component creation code here
         imageLabel = new JLabel(new ImageIcon("stand.png"));
+        imageLabel.setPreferredSize(new Dimension(250,250));
         wordToGuess = new JLabel();
         remainingGuessesLabel = new JLabel();
 
