@@ -20,7 +20,8 @@ public class GameLogic {
     }
 
     private String generateWord() {
-        String[] words = {"GIRAFFE", "ARCTIC", "HANGMAN", "SUPERCALIFRAGILISTICEXPIALIDOCIOUS", "XENOTRANSPLANTATION", "ENGLISH", "BASKETBALL", "GENERATION"};
+        String[] words = {"GIRAFFE", "ARCTIC", "HANGMAN", "HELLO", "KEYBOARD", "ENGLISH", "BASKETBALL", "GENERATION", "PIANO","MOUSE","RHINO","LION","SPEAKER","STRAW" +
+                "LIGHT", "PANDA", "PHONE","SCHOOL", "PHYSICS"};
         Random rand = new Random();
         int randomNumber = rand.nextInt(words.length);
         return words[randomNumber];
