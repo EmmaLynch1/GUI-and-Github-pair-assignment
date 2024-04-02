@@ -260,7 +260,7 @@ public class GameScreen extends JFrame {
     }
     private void createUIComponents() {
         // TODO: place custom component creation code here
-        imageLabel = new JLabel(new ImageIcon("stand.png"));
+        imageLabel = new JLabel(("stand.png"));
         wordToGuess = new JLabel();
         remainingGuessesLabel = new JLabel();
 
