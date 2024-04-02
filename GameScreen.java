@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -41,14 +40,15 @@ public class GameScreen extends JFrame {
     private JLabel imageLabel;
     private JLabel wordToGuess;
     private JLabel remainingGuessesLabel;
+    GUIproject GUIProjectInstance;
 
-
-    public GameScreen() {
+    public GameScreen(GUIproject GUIProjectInstance) {
+        this.GUIProjectInstance= GUIProjectInstance;
         setTitle("Hangman");
         setSize(400, 300);
         setBounds(400, 100, 600, 500);
         //initialize game logic
-        gameLogic = new GameLogic(this);
+        gameLogic = new GameLogic(this,this.GUIProjectInstance);
         setVisible(true);
         updateWordToGuessLabel(gameLogic.getHiddenWord());
         mainPopup.addActionListener(new ActionListener() {
@@ -255,46 +255,12 @@ public class GameScreen extends JFrame {
     public void updateRemainingGuessesLabel(int remainingGuesses){
         remainingGuessesLabel.setText("Remaining Guesses: "+ remainingGuesses);
     }
-
-    public void updateHangmanPhoto(int remainingGuesses){
-        ImageIcon head = new ImageIcon(getClass().getResource("head.png"));
-        ImageIcon stand = new ImageIcon(getClass().getResource("stand.png"));
-        ImageIcon body = new ImageIcon(getClass().getResource("body.png"));
-        ImageIcon left_arm = new ImageIcon(getClass().getResource("leftarm.png"));
-        ImageIcon right_arm = new ImageIcon(getClass().getResource("rightarm.png"));
-        ImageIcon right_leg = new ImageIcon(getClass().getResource("rightleg.png"));
-
-        if (remainingGuesses == 6) {
-            imageLabel.setIcon(stand);
-        }
-        else if (remainingGuesses == 5) {
-            imageLabel.setIcon(head);
-        }
-        else if (remainingGuesses == 4) {
-            imageLabel.setIcon(body);
-        }
-        else if (remainingGuesses == 3) {
-            imageLabel.setIcon(left_arm);
-        }
-        else if (remainingGuesses == 2) {
-            imageLabel.setIcon(right_arm);
-        }
-        else if (remainingGuesses == 1) {
-            imageLabel.setIcon(right_leg);
-        }
-        else {
-            imageLabel.setIcon(stand);
-        }
-
-
-    }
     public void updateWordToGuessLabel(String updatedHiddenWord) {
         wordToGuess.setText(updatedHiddenWord);
     }
     private void createUIComponents() {
         // TODO: place custom component creation code here
-
-        imageLabel = new JLabel();
+        imageLabel = new JLabel(new ImageIcon("stand.png"));
         wordToGuess = new JLabel();
         remainingGuessesLabel = new JLabel();
 
