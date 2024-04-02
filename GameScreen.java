@@ -58,7 +58,7 @@ public class GameScreen extends JFrame {
             }
         });
         setContentPane(GameScreen);
-        //setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         //in game popup
         mainPopup.addActionListener(new ActionListener() {
