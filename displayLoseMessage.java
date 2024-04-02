@@ -6,26 +6,29 @@ public class displayLoseMessage extends JFrame {
     private JButton BACKTOMAINMENUButton;
     private JButton QUITButton;
     private JPanel displayLoseMessage;
-
-    public displayLoseMessage() {
+    private int score;
+    public displayLoseMessage(int score) {
         setTitle("LOSE SCREEN");
         setSize(400, 300);
         setBounds(400, 100, 600, 500);
         setVisible(true);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.score=score;
         BACKTOMAINMENUButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                GUIproject home = new GUIproject();
-                home.setVisible(true);
+
 
             }
         });
         QUITButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to quit?", "confirm", JOptionPane.YES_NO_OPTION);
+                if (result == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
 
             }
         });

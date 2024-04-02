@@ -47,7 +47,7 @@ public class GameScreen extends JFrame {
         setSize(400, 300);
         setBounds(400, 100, 600, 500);
         //initialize game logic
-        gameLogic = new GameLogic(this);
+        gameLogic = new GameLogic(this, new GUIproject());
         setVisible(true);
         updateWordToGuessLabel(gameLogic.getHiddenWord());
         mainPopup.addActionListener(new ActionListener() {
