@@ -44,8 +44,8 @@ public class GameLogic {
     }
     private int calculateScore(){
         int remainingGuesses = getRemainingGuesses();
-        int baseScore=100;
-        int score = baseScore + (remainingGuesses*10);
+        int baseScore=50;
+        int score = baseScore + (remainingGuesses*20);
         return score;
     }
 
