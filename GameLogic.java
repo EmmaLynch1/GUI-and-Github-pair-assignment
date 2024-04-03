@@ -79,6 +79,7 @@ public class GameLogic {
             //handle lose
             remainingGuesses--;
             gameScreen.updateRemainingGuessesLabel(getRemainingGuesses());
+            gameScreen.updateHangmanPhoto(getRemainingGuesses());
             if (remainingGuesses==0){
                 score= calculateScore();
                 String playerName= getPlayerName();

@@ -266,6 +266,7 @@ public class GameScreen extends JFrame {
         ImageIcon body = new ImageIcon(getClass().getResource("body.png"));
         ImageIcon left_arm = new ImageIcon(getClass().getResource("leftarm.png"));
         ImageIcon right_arm = new ImageIcon(getClass().getResource("rightarm.png"));
+        ImageIcon left_leg = new ImageIcon(getClass().getResource("leftleg.png"));
         ImageIcon right_leg = new ImageIcon(getClass().getResource("rightleg.png"));
 
         if (remainingGuesses == 6) {
@@ -284,6 +285,9 @@ public class GameScreen extends JFrame {
             imageLabel.setIcon(right_arm);
         }
         else if (remainingGuesses == 1) {
+            imageLabel.setIcon(left_leg);
+        }
+        else if (remainingGuesses == 0) {
             imageLabel.setIcon(right_leg);
         }
         else {
@@ -293,7 +297,7 @@ public class GameScreen extends JFrame {
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
-        imageLabel = new JLabel(new ImageIcon("stand.png"));
+        imageLabel = new JLabel();
         imageLabel.setPreferredSize(new Dimension(250,250));
         wordToGuess = new JLabel();
         remainingGuessesLabel = new JLabel();
