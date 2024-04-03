@@ -52,6 +52,7 @@ public class GameScreen extends JFrame {
         gameLogic = new GameLogic(this,this.GUIProjectInstance);
         setVisible(true);
         updateWordToGuessLabel(gameLogic.getHiddenWord());
+        updateHangmanPhoto(gameLogic.getRemainingGuesses());
         mainPopup.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -268,7 +269,6 @@ public class GameScreen extends JFrame {
         ImageIcon right_arm = new ImageIcon(getClass().getResource("rightarm.png"));
         ImageIcon left_leg = new ImageIcon(getClass().getResource("leftleg.png"));
         ImageIcon right_leg = new ImageIcon(getClass().getResource("rightleg.png"));
-
         if (remainingGuesses == 6) {
             imageLabel.setIcon(stand);
         }

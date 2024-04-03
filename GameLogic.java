@@ -8,6 +8,7 @@ public class GameLogic {
     private GameScreen gameScreen;
     private GUIproject guiProject;
     private int score;
+    private String incorrectLetters;
     public GameLogic(GameScreen gameScreen, GUIproject guiProject) {
         this.gameScreen=gameScreen;
         this.guiProject= guiProject;
@@ -15,8 +16,10 @@ public class GameLogic {
         initializeHiddenWord();
         //set initial number of guesses/amount of body parts
         remainingGuesses = 6;
+        gameScreen.updateRemainingGuessesLabel(getRemainingGuesses());
         //initialize score to 0 when game starts
         score=0;
+        incorrectLetters= "";
     }
 
     private String generateWord() {
@@ -61,6 +64,7 @@ public class GameLogic {
             for (int i = 0; i < chosenWord.length(); i++) {
                 if (chosenWord.charAt(i) == guessedLetter) {
                     updatedHiddenWord.setCharAt(i, guessedLetter);
+
                 }
             }
             hiddenWord = updatedHiddenWord.toString();
