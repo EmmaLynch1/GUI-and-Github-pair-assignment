@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class GUIproject extends JFrame {
         //setBounds(400, 100, 600, 500);
         //setVisible(true);
         //setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //setPreferredSize(new Dimension(400,300));
         this.highScores = new ArrayList<>();
         playButton.addActionListener(new ActionListener() {
             @Override
